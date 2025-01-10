@@ -1,11 +1,10 @@
-import { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Home | BrightMind",
-  description: "Welcome to BrightMind - Your Mental Health & Wellness Journey",
-};
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+  const router = useRouter();
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 px-4 py-16">
       <div className="max-w-4xl mx-auto">
@@ -21,8 +20,11 @@ export default function HomePage() {
             <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
               BrightMind provides a safe, supportive space for your mental health journey. Discover tools, resources, and guidance to enhance your emotional well-being.
             </p>
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-md">
-              Begin Your Journey
+            <button 
+              onClick={() => router.push('/mood-check')}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-md"
+            >
+              How are you feeling today?
             </button>
           </section>
 

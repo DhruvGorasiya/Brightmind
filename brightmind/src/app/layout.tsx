@@ -12,7 +12,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import Authenticate from "./aunthenticate";
-import HomePage from "./homepage";
+import HomePage from "./homepage/page";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
