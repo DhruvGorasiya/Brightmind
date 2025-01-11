@@ -24,7 +24,7 @@ export default function MoodCheckPage() {
           {moods.map((mood) => (
             <button
               key={mood.label}
-              onClick={() => router.push(`/mood-results`)}
+              onClick={() => router.push(`/mood-results/${mood.label.toLowerCase()}`)}
               className={`bg-gradient-to-r ${mood.color} hover:opacity-90 text-white p-8 rounded-xl flex flex-col items-center gap-4 transition-all duration-300 transform hover:scale-105 shadow-md`}
             >
               <span className="text-5xl">{mood.emoji}</span>
