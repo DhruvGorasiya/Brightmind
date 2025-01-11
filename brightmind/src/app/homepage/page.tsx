@@ -67,7 +67,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="bg-white/80 dark:bg-gray-800/90 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-700"
+            <div className="bg-white/80 dark:bg-gray-800/90 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-700 cursor-pointer"
               onClick={() => router.push("/support-pathway")}
             >
               <h3 className="text-2xl font-semibold mb-4 text-blue-600 dark:text-blue-400">
