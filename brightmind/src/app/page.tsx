@@ -1,9 +1,14 @@
+import HomePage from "./homepage/page";
+
 export default function DashboardLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-        <main>{children}</main>
-  )
+    <main>
+      <HomePage />
+      {children}
+    </main>
+  );
 }

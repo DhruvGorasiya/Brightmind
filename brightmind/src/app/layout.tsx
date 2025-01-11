@@ -50,7 +50,6 @@ export default async function RootLayout({
             <main className="flex-1">
               <SidebarTrigger />
               <Authenticate />
-              <HomePage />
               {children}
             </main>
           </SidebarProvider>
