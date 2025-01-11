@@ -45,7 +45,7 @@ export default function HomePage() {
               {isSignedIn && (
                 <button
                   className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-md"
-                  onClick={() => router.push("/talk")}
+                  onClick={() => router.push("/chat")}
                 >
                   Want to talk? Chat with us.
                 </button>
