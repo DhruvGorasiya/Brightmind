@@ -1,9 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useAuth } from "@clerk/nextjs";
 
 export default function HomePage() {
   const router = useRouter();
+
+  const { isLoaded, isSignedIn } = useAuth();
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 px-4 py-16">
@@ -22,21 +25,34 @@ export default function HomePage() {
               health journey. Discover tools, resources, and guidance to enhance
               your emotional well-being.
             </p>
-            <button
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-md"
-              onClick={() => router.push("/mood-check")}
-            >
-              How are you feeling today?
-            </button>
+            <div className="flex gap-4 flex-wrap">
+              <button
+                className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-md"
+                onClick={() => router.push("/mood-check")}
+              >
+                How are you feeling today?
+              </button>
+              {isSignedIn && (
+                <button
+                  className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-md"
+                  onClick={() => router.push("/talk")}
+                >
+                  Want to talk? Chat with us.
+                </button>
+              )}
+            </div>
           </section>
 
-          <section className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white/80 dark:bg-gray-800/90 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-700 cursor-pointer"
+          <section
+            className={`grid ${
+              isSignedIn ? "md:grid-cols-2" : "md:grid-cols-1"
+            } gap-8`}
+          >
+            <div
+              className="bg-white/80 dark:bg-gray-800/90 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-700 cursor-pointer"
               onClick={() => router.push("/wellness-resource")}
             >
-              <h3
-                className="text-2xl font-semibold mb-4 text-blue-600 dark:text-blue-400 cursor-pointer"
-              >
+              <h3 className="text-2xl font-semibold mb-4 text-blue-600 dark:text-blue-400 cursor-pointer">
                 Wellness Resources
               </h3>
               <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
