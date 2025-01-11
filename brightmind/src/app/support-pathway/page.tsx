@@ -10,25 +10,25 @@ export default function SupportPathwayPage() {
       title: "Self-Help Resources",
       description: "Access guided meditation, breathing exercises, and journaling tools to support your daily mental wellness routine.",
       icon: "🧘‍♀️",
-      link: "/self-help"
+      link: "/support-pathway/self-help-resources"
     },
     {
       title: "Peer Support Groups",
       description: "Connect with others who share similar experiences in a safe, moderated environment.",
       icon: "👥",
-      link: "/peer-support"
+      link: "/support-pathway/peer-support"
     },
     {
       title: "Professional Guidance",
       description: "Find licensed therapists and counselors who can provide expert support for your mental health journey.",
       icon: "👨‍⚕️",
-      link: "/professional-help"
+      link: "/support-pathway/professional-help"
     },
     {
       title: "Crisis Resources",
       description: "Immediate support and helpline information for urgent mental health needs.",
       icon: "🆘",
-      link: "/crisis-support"
+      link: "/support-pathway/crisis-support"
     }
   ];
 

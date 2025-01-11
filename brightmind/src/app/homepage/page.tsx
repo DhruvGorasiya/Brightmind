@@ -2,18 +2,28 @@
 
 import { useRouter } from "next/navigation";
 import { useAuth } from "@clerk/nextjs";
+import { useUser } from '@clerk/nextjs'
 
 export default function HomePage() {
   const router = useRouter();
 
   const { isLoaded, isSignedIn } = useAuth();
+  const { user } = useUser();
+
+  console.log(user?.fullName);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 px-4 py-16">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
-          Welcome to BrightMind
-        </h1>
+        {user?.fullName ? (
+          <h1 className="text-5xl md:text-6xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
+            Welcome, {user?.fullName}
+          </h1>
+        ) : (
+          <h1 className="text-5xl md:text-6xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
+            Welcome to BrightMind
+          </h1>
+        )}
 
         <div className="space-y-8">
           <section className="bg-white/80 dark:bg-gray-800/90 rounded-xl p-8 shadow-lg backdrop-blur-sm border border-gray-100 dark:border-gray-700">
