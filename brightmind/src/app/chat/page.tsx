@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Send } from "lucide-react";
+import axios from "axios";
 
 interface Message {
   role: "user" | "assistant";
@@ -28,13 +29,9 @@ export default function ChatPage() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input.trim() }),
+      const { data } = await axios.post("/api/chat", {
+        message: input.trim(),
       });
-
-      const data = await response.json();
       const aiMessage: Message = {
         role: "assistant",
         content: data.message,
