@@ -29,7 +29,7 @@ export default function ChatPage() {
     setIsLoading(true);
 
     try {
-      const { data } = await axios.post("/api/chat", {
+      const { data } = await axios.post("http://localhost:8000/api/ai_message", {
         message: input.trim(),
       });
       const aiMessage: Message = {
