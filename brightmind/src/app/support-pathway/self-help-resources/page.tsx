@@ -96,7 +96,10 @@ export default function SelfHelpPage() {
           {resources.map((resource, index) => (
             <div
               key={index}
-              className="bg-white/80 dark:bg-gray-800/90 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-700"
+              className="bg-white/80 dark:bg-gray-800/90 rounded-xl p-8 shadow-lg 
+                hover:shadow-xl transition-all duration-300 backdrop-blur-sm 
+                border border-gray-100 dark:border-gray-700
+                hover:scale-[1.02] hover:-translate-y-1 cursor-pointer"
             >
               <div className="flex items-start gap-4">
                 <span className="text-4xl" role="img" aria-label="icon">
