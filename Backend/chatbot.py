@@ -7,6 +7,8 @@ import ast
 
 pc = Pinecone(api_key="pcsk_2PtCE2_FGAixBLUzs6w9VbHPUXNVhh2WpQaeYDZ7KkVyBuvEyP7KN1QTcXwBXUFBpszX6b")
 
+
+
 client = OpenAI()
 
 client.api_key = os.getenv("OPENAI_API_KEY")

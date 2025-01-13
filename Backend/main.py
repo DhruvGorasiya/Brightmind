@@ -6,7 +6,12 @@ from openai import OpenAI
 import os
 from datetime import datetime
 
-# Initialize FastAPI app
+from pinecone import Pinecone
+
+pc = Pinecone(api_key="pcsk_7UFomm_Kecd55P2SgC2oYEWxT1tpZ6Rj3Y4ZajpZ458Xx9jgKU6qucGLEhWmp2ekKdqALY")
+
+index = pc.Index("brightmind")
+
 app = FastAPI()
 
 # Add CORS middleware
