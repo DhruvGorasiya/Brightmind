@@ -16,19 +16,13 @@ export default function SupportPathwayPage() {
       title: "Peer Support Groups",
       description: "Connect with others who share similar experiences in a safe, moderated environment.",
       icon: "👥",
-      link: "/support-pathway/peer-support"
-    },
-    {
-      title: "Professional Guidance",
-      description: "Find licensed therapists and counselors who can provide expert support for your mental health journey.",
-      icon: "👨‍⚕️",
-      link: "/support-pathway/professional-help"
+      link: "/support-pathway/peer-support-groups"
     },
     {
       title: "Crisis Resources",
       description: "Immediate support and helpline information for urgent mental health needs.",
       icon: "🆘",
-      link: "/support-pathway/crisis-support"
+      link: "/support-pathway/crisis-resource"
     }
   ];
 
