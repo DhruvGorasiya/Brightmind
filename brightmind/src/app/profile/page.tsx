@@ -15,6 +15,18 @@ export default function ProfilePage() {
     )
   }
 
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gray-50 p-8">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+            Please create account or sign in to view your profile
+          </h2>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-2xl mx-auto">
