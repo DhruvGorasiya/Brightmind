@@ -35,7 +35,7 @@ async def handle_message(request: MessageRequest):
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "You are a helpful AI assistant."},
+                {"role": "system", "content": "You are a helpful AI assistant, who specializes in helping people with their mental health."},
                 {"role": "user", "content": request.message}
             ],
             max_tokens=500,

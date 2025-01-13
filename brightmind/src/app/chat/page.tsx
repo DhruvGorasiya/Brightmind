@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import { Toaster } from "@/components/ui/toaster"
+import { useToast } from "@/hooks/use-toast";
 
 interface Message {
   role: "user" | "assistant";
@@ -14,6 +17,8 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,9 +34,12 @@ export default function ChatPage() {
     setIsLoading(true);
 
     try {
-      const { data } = await axios.post("http://localhost:8000/api/ai_message", {
-        message: input.trim(),
-      });
+      const { data } = await axios.post(
+        "http://localhost:8000/api/ai_message",
+        {
+          message: input.trim(),
+        }
+      );
       const aiMessage: Message = {
         role: "assistant",
         content: data.message,
@@ -43,6 +51,13 @@ export default function ChatPage() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleEndChat = () => {
+    toast({
+      description: "Thanks for talking! See you next time!",
+    });
+    router.push("/mood-check");
   };
 
   return (
@@ -137,16 +152,17 @@ export default function ChatPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:opacity-50 disabled:hover:bg-blue-600 transition-colors"
               >
                 <Send className="w-5 h-5" />
               </button>
               <button
-                type="submit"
+                type="button"
                 disabled={isLoading}
+                onClick={handleEndChat}
                 className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:opacity-50 disabled:hover:bg-blue-600 transition-colors"
               >
-                <Send className="w-5 h-5" />
+                End Chat
               </button>
             </form>
           </div>

@@ -17,7 +17,7 @@ export default function MoodCheckPage() {
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 px-4 py-16">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
-          How are you feeling today?
+          How are you feeling?
         </h1>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
