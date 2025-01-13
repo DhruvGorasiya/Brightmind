@@ -46,23 +46,18 @@ const items = [
     icon: Home,
   },
   {
-    title: "Inbox",
+    title: "Posts",
     url: "#",
     icon: Inbox,
   },
   {
-    title: "Posts",
+    title: "Inbox",
     url: "#",
     icon: Calendar,
   },
   {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
     title: "Profile Settings",
-    url: "#",
+    url: "/profile",
     icon: Settings,
   },
 ];
