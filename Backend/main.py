@@ -5,6 +5,11 @@ from typing import Optional
 from openai import OpenAI
 import os
 from datetime import datetime
+from langchain_pinecone import PineconeVectorStore
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.document_loaders import DirectoryLoader
+from langchain_community.text_splitter import RecursiveCharacterTextSplitter
+import glob
 
 from pinecone import Pinecone
 
