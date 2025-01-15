@@ -160,7 +160,7 @@ export default function ChatPage() {
                 type="button"
                 disabled={isLoading}
                 onClick={handleEndChat}
-                className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:opacity-50 disabled:hover:bg-blue-600 transition-colors"
+                className="p-3 bg-red-600 text-white rounded-full hover:bg-red-700 disabled:opacity-50 disabled:hover:bg-red-600 transition-colors"
               >
                 End Chat
               </button>
