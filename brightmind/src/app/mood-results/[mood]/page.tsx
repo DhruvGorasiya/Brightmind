@@ -78,14 +78,21 @@ export default function MoodResultPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 px-4 py-16">
       <div className="max-w-4xl mx-auto">
-        <div className={`bg-gradient-to-r ${currentMood.color} p-8 rounded-xl text-white text-center mb-8`}>
+        <div
+          className={`bg-gradient-to-r ${currentMood.color} p-8 rounded-xl text-white text-center mb-8`}
+        >
           <span className="text-6xl block mb-4">{currentMood.emoji}</span>
-          <h1 className="text-3xl md:text-4xl font-bold">{currentMood.title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold">
+            {currentMood.title}
+          </h1>
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
           {currentMood.content.map((text, index) => (
-            <p key={index} className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
+            <p
+              key={index}
+              className="text-gray-700 dark:text-gray-300 mb-4 text-lg"
+            >
               {text}
             </p>
           ))}
@@ -96,6 +103,12 @@ export default function MoodResultPage() {
           className="mt-8 mx-auto block text-blue-600 dark:text-blue-400 hover:underline"
         >
           ← Go back
+        </button>
+        <button
+          onClick={() => router.push("/homepage")}
+          className="mt-8 mx-auto block text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          Go to Homepage;
         </button>
       </div>
     </div>

@@ -99,20 +99,23 @@ export default function ChatPage() {
                     }
                   `}
                 >
-                  <div
-                    className={`text-sm ${
-                      message.role === "user"
-                        ? "text-white"
-                        : "text-gray-800 dark:text-gray-200"
-                    }`}
-                  >
-                    {message.content}
-                  </div>
+                  {message.role === "assistant" && Array.isArray(message.content) && message.content.length === 4 ? (
+                    <div className="grid grid-cols-2 gap-4">
+                      {message.content.map((score, scoreIndex) => (
+                        <div key={scoreIndex} className="p-4 border rounded-lg shadow-md bg-gray-100 dark:bg-gray-800">
+                          <h2 className="text-lg font-semibold">{`Score ${scoreIndex + 1}`}</h2>
+                          <p className="text-xl">{score}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className={`text-sm ${message.role === "user" ? "text-white" : "text-gray-800 dark:text-gray-200"}`}>
+                      {message.content}
+                    </div>
+                  )}
                   <div
                     className={`text-xs mt-1 ${
-                      message.role === "user"
-                        ? "text-blue-200"
-                        : "text-gray-500"
+                      message.role === "user" ? "text-blue-200" : "text-gray-500"
                     }`}
                   >
                     {message.timestamp.toLocaleTimeString([], {

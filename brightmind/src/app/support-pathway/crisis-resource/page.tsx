@@ -42,6 +42,22 @@ export default function CrisisResourcesPage() {
           </p>
         </div>
 
+        {/* Important Notice */}
+        <div className="mt-16">
+          <div className="bg-red-50 dark:bg-red-900/30 p-8 rounded-2xl border border-red-100 dark:border-red-800 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h2 className="text-2xl font-bold text-red-700 dark:text-red-400 mb-4">
+              Important Notice
+            </h2>
+            <p className="text-red-600 dark:text-red-300 text-lg leading-relaxed">
+              If you or someone else is in immediate danger, please call
+              emergency services (911) immediately. Don&apos;t wait – your
+              safety is the top priority.
+            </p>
+          </div>
+        </div>
+
+        <br />
+
         {/* Resources Section */}
         <div className="space-y-8">
           {emergencyResources.map((resource, index) => (
@@ -72,20 +88,6 @@ export default function CrisisResourcesPage() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Important Notice */}
-        <div className="mt-16">
-          <div className="bg-red-50 dark:bg-red-900/30 p-8 rounded-2xl border border-red-100 dark:border-red-800 shadow-md hover:shadow-lg transition-shadow duration-300">
-            <h2 className="text-2xl font-bold text-red-700 dark:text-red-400 mb-4">
-              Important Notice
-            </h2>
-            <p className="text-red-600 dark:text-red-300 text-lg leading-relaxed">
-              If you or someone else is in immediate danger, please call
-              emergency services (911) immediately. Don't wait – your safety is
-              the top priority.
-            </p>
-          </div>
         </div>
 
         {/* Back Button */}

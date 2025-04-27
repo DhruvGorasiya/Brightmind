@@ -5,13 +5,13 @@ from typing import Optional
 from pinecone import Pinecone, ServerlessSpec
 import ast
 
-pc = Pinecone(api_key="pcsk_2PtCE2_FGAixBLUzs6w9VbHPUXNVhh2WpQaeYDZ7KkVyBuvEyP7KN1QTcXwBXUFBpszX6b")
+pc = Pinecone(api_key="PINECONE_API_KEY")
 
-
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 client = OpenAI()
 
-client.api_key = os.getenv("OPENAI_API_KEY")
+client.api_key = OPENAI_API_KEY
 
 index = pc.Index("chatapp")
 
