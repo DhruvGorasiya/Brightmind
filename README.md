@@ -1,162 +1,123 @@
-# Adaptive AI Tutor Backend
+# 🧠 Brightmind
 
-An intelligent, cloud-ready backend that powers an adaptive tutoring system using Reinforcement Learning (RL), Retrieval-Augmented Generation (RAG), LangChain, Pinecone vector database, and OpenAI's GPT-4.
-
-Built with FastAPI, this backend enables personalized tutoring, quiz generation, and content adaptation — simulating a human-like, context-aware AI tutor.
+**Brightmind** is an AI-powered mental health companion designed to support individuals experiencing anxiety and depression through real-time conversations—both voice and chat. Built with a deep focus on empathy, accessibility, and privacy, Brightmind uses cutting-edge LLMs and voice technologies to offer an always-available, judgment-free space.
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-- **Adaptive Tutoring System** using RL-based decision making (hint, clarifying question, full answer)
-- **RAG Pipeline**: Retrieve context from vector embeddings (Pinecone) to enhance GPT-4 responses
-- **Conversation Memory**: Track and store student conversations with timestamps
-- **Custom Quiz Generation**: Create topic-specific quizzes with difficulty settings (easy, medium, hard)
-- **Personalized Learning Content**: Generate custom modules tailored to student's level (beginner, intermediate, advanced)
-- **Scalable Cloud Architecture**: Deployable with Docker, GCP Cloud Run, AWS, etc.
-
----
-
-## 🛠 Tech Stack
-
-- **Backend Framework**: FastAPI
-- **LLM**: OpenAI GPT-4
-- **Vector Store**: Pinecone (via LangChain)
-- **Prompt Engineering**: LangChain templates
-- **Deployment Ready**: Docker + GCP
-- **Logging**: Python standard logging
-- **Memory Management**: In-memory conversation storage (can extend to DB)
+- 🧘 **Real-time Voice Therapy** using Whisper (speech-to-text) and Croque (text-to-speech)
+- 💬 **Conversational AI Chat** powered by large language models for responsive and emotionally intelligent dialogue
+- 🧠 **Memory-Aware Conversations** with personalized context stored and retrieved using Pinecone vector DB
+- 🧾 **Secure Chat History** stored in MongoDB with user-specific access and encryption
+- 🎯 **Minimalist Frontend** for focused, distraction-free interaction using Next.js and Tailwind CSS
+- ⚡ **FastAPI Backend** for real-time API handling and session management
 
 ---
 
-## 🧩 Project Structure
+## 🏗️ Tech Stack
 
-```plaintext
-adaptive_tutor_backend/
-├── main.py               # API Server
-├── agent.py              # Reinforcement Learning Agent
-├── retriever.py          # Context Retriever via Pinecone
-├── conversation.py       # Manage chat memory
-├── quiz_generator.py     # Generate quizzes
-├── content_generator.py  # Generate personalized content
-├── requirements.txt      # Dependencies
-├── README.md             # Project Overview (this file)
-```
+| Layer       | Technology           |
+|-------------|----------------------|
+| Frontend    | Next.js, Tailwind CSS |
+| Backend     | FastAPI              |
+| Database    | MongoDB (user/session data), Pinecone (vector memory) |
+| Audio       | Whisper (ASR), Croque TTS (Voice response) |
+| AI Model    | OpenAI GPT / Custom LLM integration |
 
 ---
 
-## 📦 Setup Instructions
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.9+
+- Node.js 18+
+- MongoDB Atlas or local instance
+- Pinecone API Key
+- OpenAI API Key (or other LLM provider)
+- Whisper & Croque setup
+
+### Installation
 
 1. **Clone the repository**
-    ```sh
-    git clone https://github.com/your-username/adaptive-tutor-backend.git
-    cd adaptive-tutor-backend
-    ```
+```bash
+git clone https://github.com/DhruvGorasiya/brightmind.git
+cd brightmind
+```
 
-2. **Install dependencies**
-    ```sh
-    pip install -r requirements.txt
-    ```
+2. **Backend Setup**
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+pip install -r requirements.txt
+```
 
-3. **Set environment variables**
-    ```sh
-    export OPENAI_API_KEY="your-openai-api-key"
-    ```
+3. **Frontend Setup**
+```bash
+cd frontend
+npm install
+```
 
-4. **Run the FastAPI server**
-    ```sh
-    uvicorn main:app --reload
-    ```
+### Environment Variables
 
-The API will be live at:  
-http://127.0.0.1:8000
+1. **Backend (.env)**
+```env
+MONGODB_URI=your_mongodb_uri
+PINECONE_API_KEY=your_pinecone_api_key
+OPENAI_API_KEY=your_openai_key
+```
+
+2. **Frontend (.env.local)**
+```env
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+```
+
+### Running the Application
+
+1. **Start the Backend**
+```bash
+cd backend
+uvicorn main:app --reload
+```
+
+2. **Start the Frontend**
+```bash
+cd frontend
+npm run dev
+```
+
+## 📁 Project Structure
+
+```
+
+## 🔒 Privacy & Security
+
+- All user data is encrypted at rest and in transit
+- Conversations are stored securely in MongoDB with user-specific access
+- No data is shared with third parties
+- Regular security audits and updates
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+## 🙏 Acknowledgments
+
+- OpenAI for GPT integration
+- MongoDB for database services
+- Pinecone for vector storage
+- Next.js team for the amazing framework
+- All contributors and supporters of the project
 
 ---
 
-## 🔥 API Overview
-
-### 1. Chat with Tutor
-
-**POST** `/ask`
-
-**Request:**
-```json
-{
-  "user_id": "student123",
-  "question": "What is the Pythagorean theorem?"
-}
-```
-
-**Response:**
-```json
-{
-  "answer": "The Pythagorean theorem states...",
-  "action": "full_answer"
-}
-```
-
----
-
-### 2. Generate Quiz
-
-**POST** `/quiz`
-
-**Request:**
-```json
-{
-  "topic": "Machine Learning",
-  "difficulty": "medium"
-}
-```
-
-**Response:**
-```json
-{
-  "quiz": "1. What is supervised learning? (a)..."
-}
-```
-
----
-
-### 3. Generate Personalized Learning Content
-
-**POST** `/personalized_content`
-
-**Request:**
-```json
-{
-  "topic": "Neural Networks",
-  "level": "beginner"
-}
-```
-
-**Response:**
-```json
-{
-  "content": "Neural networks are computing systems inspired by..."
-}
-```
-
----
-
-### 4. Retrieve Conversation History
-
-**GET** `/conversation/{user_id}`
-
-**Example:**
-```
-GET /conversation/student123
-```
-
-**Response:**
-```json
-{
-  "conversation_history": [
-    {
-      "timestamp": "2025-04-27T14:02:22.202Z",
-      "question": "What is AI?",
-      "answer": "Artificial Intelligence is..."
-    }
-  ]
-}
-```
+"Mental health support should be accessible, empathetic, and always available. Brightmind is a small step toward that future." 🌱
